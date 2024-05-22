@@ -1,0 +1,17 @@
+syntax = "proto3";
+package trpc.app.server;
+option go_package="github.com/LoptrThor/middle_trpc_go";
+
+message Request {
+  string req = 1;
+}
+
+message Reply {
+  int32 err_code = 1;
+  string err_msg = 2;
+  string rsp     = 3;
+}
+
+service Account {
+  rpc OpenCheck(Request) returns (Reply); // @alias=/account/OpenCheck
+}
